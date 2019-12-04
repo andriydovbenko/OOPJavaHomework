@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Main {
     private static boolean executingGame = true;
-    private static Scanner input = new Scanner(System.in);
 
     private static void transmitCommand(int command) throws InterruptedException {
         switch (command) {
@@ -27,30 +26,30 @@ public class Main {
         System.out.println("To to pull up the car:            press 4");
         System.out.println("To check speed of the car:        press 5");
         System.out.println("To print command                  press 6");
-        System.out.println("To exit from game:                press 9");
+        System.out.println("To exit from game:                press 9\n");
     }
 
     public static void main(String[] args) {
         double radiusOfCircle = 32;
         Circle circle = new Circle(radiusOfCircle);
         DecimalFormat formatter = new DecimalFormat("#0.00");
-        System.out.println(formatter.format(circle.getAreaOfCircle()));
+        System.out.println("Radius of the circle = " + radiusOfCircle);
+        System.out.println("Area of circle = " + formatter.format(circle.getAreaOfCircle()) + "\n");
 
         new WhichCountInstances();
         new WhichCountInstances();
         new WhichCountInstances();
-        System.out.println(WhichCountInstances.getCOUNTER());
+        System.out.println("Was created: " + WhichCountInstances.getCOUNTER() + " instances of this class\n");
 
         System.out.println("Game the Car");
         printCommand();
-        new Car();
         while (executingGame) {
+            Scanner input = new Scanner(System.in);
             try {
                 int command = input.nextInt();
                 transmitCommand(command);
             } catch (InputMismatchException | InterruptedException e) {
-                System.out.println("Input Error, if you can not write the digit, obviously this game not for you");
-                break;
+                System.out.println("Input Error, try again");
             }
         }
         System.out.println("End of the Game");
