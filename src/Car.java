@@ -10,12 +10,12 @@ public class Car {
         }
     }
 
-    public static void startOfTheCar() throws InterruptedException {
+    public static void startTheCar() throws InterruptedException {
         if (start) {
             System.out.println("Engine has already turned on");
         } else {
             System.out.println("You are turning the engine on");
-            Thread.sleep(1500);
+            Thread.sleep(1000);
             Car.start = true;
             checkStageOfEngine();
             System.out.println("You can drive now");
@@ -32,36 +32,42 @@ public class Car {
                 currentSpeed += acceleration;
                 checkSpeed();
             }
+        } else if (!start) {
+            System.out.println("First you should turn the engine on to drive the car  ");
         } else {
             System.out.println("You are driving the car with speed: " + currentSpeed);
         }
     }
 
     public static void turnOffTheEngine() throws InterruptedException {
-        if (currentSpeed == 0) {
+        if (currentSpeed == 0 && start) {
             System.out.println("You are turning the engine off");
             Thread.sleep(1000);
             start = false;
             System.out.println("The engine has turned off");
-        } else {
-            System.out.println("You can not turn engine off,\n because car is moving with speed: " + currentSpeed);
+        } else if (currentSpeed != 0 && start) {
+            System.out.println("You can not turn engine off,\nBecause car is moving with speed: " + currentSpeed);
             System.out.println("For turning off the engine, car should be stopped");
+        } else {
+            System.out.println("You can not turn the engine off because it is turned off now");
         }
     }
 
     public static void reduceTheSpeed() throws InterruptedException {
-        if (currentSpeed != 0) {
+        if (currentSpeed != 0 && start) {
             checkSpeed();
             System.out.println("Car is going to stop");
             while (currentSpeed != 0) {
-                int reducing = -5;
+                int reducing = 5;
                 currentSpeed -= reducing;
-                Thread.sleep(1000);
+                Thread.sleep(500);
                 checkSpeed();
             }
             System.out.println("Car has stopped");
+        } else if (!start) {
+            System.out.println("Car is standing now with turned the engine off");
         } else {
-            System.out.println("We can not reduce the speed,\n because car is not driving now");
+            System.out.println("Car is standing now with turned the engine on");
         }
     }
 
