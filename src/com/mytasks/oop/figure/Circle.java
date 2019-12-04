@@ -1,7 +1,9 @@
+package com.mytasks.oop.figure;
+
 public class Circle {
     private double areaOfCircle;
 
-    Circle(double radius) {
+    public Circle(double radius) {
         this.areaOfCircle = Math.PI * Math.pow(radius, 2);
     }
 

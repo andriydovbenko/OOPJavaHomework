@@ -1,6 +1,11 @@
+package com.mytasks.oop.game.module;
+
 public class Car {
     private static boolean start = false;
     private static int currentSpeed = 0;
+    private static int reducing = 5;
+    private static int acceleration = 5;
+    private static int allowedSpeed = 60;
 
     public static void checkStageOfEngine() {
         if (start) {
@@ -25,10 +30,8 @@ public class Car {
     public static void driveTheCar() throws InterruptedException {
         if (start && currentSpeed == 0) {
             System.out.println("The car is accelerating");
-            int allowedSpeed = 60;
             while (currentSpeed != allowedSpeed) {
                 Thread.sleep(500);
-                int acceleration = 5;
                 currentSpeed += acceleration;
                 checkSpeed();
             }
@@ -58,7 +61,6 @@ public class Car {
             checkSpeed();
             System.out.println("Car is going to stop");
             while (currentSpeed != 0) {
-                int reducing = 5;
                 currentSpeed -= reducing;
                 Thread.sleep(500);
                 checkSpeed();

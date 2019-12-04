@@ -1,8 +1,11 @@
-import java.text.DecimalFormat;
+package com.mytasks.oop.game.controller;
+
+import com.mytasks.oop.game.module.Car;
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class Main {
+public class Game {
     private static boolean executingGame = true;
 
     private static void transmitCommand(int command) throws InterruptedException {
@@ -29,18 +32,7 @@ public class Main {
         System.out.println("To exit from game:                press 9\n");
     }
 
-    public static void main(String[] args) {
-        double radiusOfCircle = 32;
-        Circle circle = new Circle(radiusOfCircle);
-        DecimalFormat formatter = new DecimalFormat("#0.00");
-        System.out.println("Radius of the circle = " + radiusOfCircle);
-        System.out.println("Area of circle = " + formatter.format(circle.getAreaOfCircle()) + "\n");
-
-        new WhichCountInstances();
-        new WhichCountInstances();
-        new WhichCountInstances();
-        System.out.println("Was created: " + WhichCountInstances.getCOUNTER() + " instances of this class\n");
-
+    public void start() {
         System.out.println("Game the Car");
         printCommand();
         while (executingGame) {
