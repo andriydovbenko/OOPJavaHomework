@@ -2,7 +2,6 @@ import java.text.DecimalFormat;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
 public class Main {
     private static boolean executingGame = true;
     private static Scanner input = new Scanner(System.in);
@@ -19,6 +18,7 @@ public class Main {
             default: { System.out.println("You entered non-exist command "); break; }
         }
     }
+
     private static void printCommand() {
         System.out.println("Available command: ");
         System.out.println("To start the engine of the car:   press 1");
@@ -43,7 +43,7 @@ public class Main {
 
         System.out.println("Game the Car");
         printCommand();
-//        new Car();
+        new Car();
         while (executingGame) {
             try {
                 int command = input.nextInt();
