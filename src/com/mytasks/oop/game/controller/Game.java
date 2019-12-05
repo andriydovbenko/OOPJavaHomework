@@ -47,4 +47,3 @@ public class Game {
         System.out.println("End of the Game");
     }
 }
-
