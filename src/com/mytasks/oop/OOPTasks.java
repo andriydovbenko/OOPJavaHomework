@@ -7,8 +7,6 @@ import com.mytasks.oop.game.controller.Game;
 import java.text.DecimalFormat;
 
 public class OOPTasks {
-
-
     public static void main(String[] args) {
         double radiusOfCircle = 32;
         Circle circle = new Circle(radiusOfCircle);

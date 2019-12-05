@@ -3,9 +3,9 @@ package com.mytasks.oop.game.module;
 public class Car {
     private static boolean start = false;
     private static int currentSpeed = 0;
-    private static int reducing = 5;
-    private static int acceleration = 5;
-    private static int allowedSpeed = 60;
+    private static final int REDUSING = 5;
+    private static final int ACCELERATION = 5;
+    private static final int ALLOWED_SPEED = 60;
 
     public static void checkStageOfEngine() {
         if (start) {
@@ -30,9 +30,9 @@ public class Car {
     public static void driveTheCar() throws InterruptedException {
         if (start && currentSpeed == 0) {
             System.out.println("The car is accelerating");
-            while (currentSpeed != allowedSpeed) {
+            while (currentSpeed != ALLOWED_SPEED) {
                 Thread.sleep(500);
-                currentSpeed += acceleration;
+                currentSpeed += ACCELERATION;
                 checkSpeed();
             }
         } else if (!start) {
@@ -61,7 +61,7 @@ public class Car {
             checkSpeed();
             System.out.println("Car is going to stop");
             while (currentSpeed != 0) {
-                currentSpeed -= reducing;
+                currentSpeed -= REDUSING;
                 Thread.sleep(500);
                 checkSpeed();
             }
