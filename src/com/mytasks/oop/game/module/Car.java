@@ -1,11 +1,11 @@
 package com.mytasks.oop.game.module;
 
 public class Car {
-    private static boolean start = false;
-    private static int currentSpeed = 0;
     private static final int REDUSING = 5;
     private static final int ACCELERATION = 5;
     private static final int ALLOWED_SPEED = 60;
+    private static boolean start = false;
+    private static int currentSpeed = 0;
 
     public static void checkStageOfEngine() {
         if (start) {
